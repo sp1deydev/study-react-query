@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { productsApi } from '../../api/productsApi';
-import { Button, Table } from 'antd';
+import { Button, Form, Input, Modal, Table, Typography } from 'antd';
+import { useQuery } from '@tanstack/react-query';
 
 const dataSource = [
   {
@@ -47,7 +48,9 @@ const columns = [
 ];
 
 function Home(props) {
+    const [addNewProductForm] = Form.useForm();
     const [isLoading, setIsLoading] = useState(false)
+    const [isOpen, setIsOpen] = useState(false);
 
     useEffect(() => {
         const fetchData = async () => {
@@ -64,6 +67,23 @@ function Home(props) {
         } 
         fetchData();
     }, [])
+    const result = useQuery({
+        queryKey: ['product'],
+        queryFn: async () => {
+            const data = await productsApi.get();
+            return data.data;
+        } 
+    })
+    console.log('result',result);
+
+
+    const handleOpenAddProductModal = () => {
+        setIsOpen(true);
+    }
+    const handleCloseAddProductModal = () => {
+        setIsOpen(false);
+    }
+
     return (
         <>
             {isLoading && <>Loading...</>}
@@ -71,9 +91,55 @@ function Home(props) {
             {!isLoading && (
                 <div className='home-container'>
                     <div className='right'>
-                        <Button type='primary' className='mb-1'>Add a Product</Button>
+                        <Button type='primary' className='mb-1' onClick={handleOpenAddProductModal}>Add a Product</Button>
                     </div>
                     <Table dataSource={dataSource} columns={columns} />
+                    <Modal
+                        title="Add a Product"
+                        visible={isOpen}
+                        onCancel={handleCloseAddProductModal}
+                        // width={660}
+                        footer={null}
+                    >
+                        <Form
+                            form={addNewProductForm}
+                            layout="vertical"
+                            // onFinish={onForgotPassword}
+                            // onFinishFailed={onFinishFailed}
+                            autoComplete="off"
+                            >
+                            <Form.Item
+                                name="name"
+                                rules={[
+                                { required: true, message: "Please input product name!" },
+                                ]}
+                            >
+                                <Input placeholder='Input product name'/>
+                            </Form.Item>
+                            <Form.Item
+                                name="quantity"
+                                rules={[
+                                { required: true, message: "Please input quantity!" },
+                                ]}
+                            >
+                                <Input placeholder='Input quantity'/>
+                            </Form.Item>
+                            <Form.Item
+                                name="note"
+                                rules={[
+                                // { required: true, message: "Please input note!" },
+                                ]}
+                            >
+                                <Input placeholder='Input note'/>
+                            </Form.Item>
+                            <Form.Item>
+                                <Button type="primary" htmlType="submit" style={{ width: '100%' }} >
+                                    {/* {isLoading && <Loading color="#fff" bgColor="#1677ff" size="50"/>} */}
+                                    Add a new Product
+                                </Button>
+                            </Form.Item>
+                            </Form>
+                    </Modal>
                 </div>
             )}
         </>
