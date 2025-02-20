@@ -1,9 +1,13 @@
-import './App.css';
-import Home from './features/Home';
+import "./App.css";
+import Home from "./features/Home";
+import { ToastContainer } from "react-toastify";
 
 function App() {
   return (
-    <Home/>
+    <>
+      <Home />
+      <ToastContainer/>
+    </>
   );
 }
 

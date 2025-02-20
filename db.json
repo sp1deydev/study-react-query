@@ -1,9 +1,111 @@
 {
-    "posts": [
-      { "id": 1, "title": "json-server", "author": "typicode" }
-    ],
-    "comments": [
-      { "id": 1, "body": "some comment", "postId": 1 }
-    ],
-    "profile": { "name": "typicode" }
-  }
+  "posts": [
+    {
+      "id": "1",
+      "title": "json-server",
+      "author": "typicode"
+    }
+  ],
+  "comments": [
+    {
+      "id": "1",
+      "body": "some comment",
+      "postId": 1
+    }
+  ],
+  "profile": {
+    "name": "typicode"
+  },
+  "products": [
+    {
+      "id": "1",
+      "productName": "Mike",
+      "productQuantity": "9775",
+      "note": "10 Downing Street"
+    },
+    {
+      "id": "2",
+      "productName": "John",
+      "productQuantity": "425",
+      "note": "10 Downing Street"
+    },
+    {
+      "id": "3",
+      "productName": "Alice",
+      "productQuantity": "252",
+      "note": "221B Baker Street"
+    },
+    {
+      "id": "4",
+      "productName": "Bob",
+      "productQuantity": 50,
+      "note": "742 Evergreen Terrace"
+    },
+    {
+      "id": "5",
+      "productName": "Charlie",
+      "productQuantity": 18,
+      "note": "1600 Pennsylvania Ave"
+    },
+    {
+      "id": "6",
+      "productName": "David",
+      "productQuantity": 36,
+      "note": "Buckingham Palace"
+    },
+    {
+      "id": "7",
+      "productName": "Emma",
+      "productQuantity": 28,
+      "note": "350 5th Ave, NYC"
+    },
+    {
+      "id": "8",
+      "productName": "Frank",
+      "productQuantity": 40,
+      "note": "123 Elm Street"
+    },
+    {
+      "id": "9",
+      "productName": "Grace",
+      "productQuantity": 22,
+      "note": "221B Baker Street"
+    },
+    {
+      "id": "10",
+      "productName": "Henry",
+      "productQuantity": 55,
+      "note": "742 Evergreen Terrace"
+    },
+    {
+      "id": "11",
+      "productName": "Ivy",
+      "productQuantity": 30,
+      "note": "10 Downing Street"
+    },
+    {
+      "id": "12",
+      "productName": "Jack",
+      "productQuantity": 47,
+      "note": "1600 Pennsylvania Ave"
+    },
+    {
+      "id": "13",
+      "productName": "Kelly",
+      "productQuantity": 35,
+      "note": "Buckingham Palace"
+    },
+    {
+      "id": "14",
+      "productName": "Leo",
+      "productQuantity": 26,
+      "note": "350 5th Ave, NYC"
+    },
+    {
+      "id": "15",
+      "productName": "Mia",
+      "productQuantity": 20,
+      "note": "123 Elm Street"
+    }
+  ]
+}

@@ -1,0 +1,16 @@
+const result = useQuery({
+        queryKey: ['products'],
+        queryFn: async () => {
+            const data = await productsApi.get();
+            return data.data;
+        }
+    });
+
+const mutation = useMutation({
+    mutationFn: async (data) => {
+        return await productsApi.put(data);
+    },
+    onSuccess: () => {
+        queryClient.invalidateQueries({ queryKey: ['products'] })
+      },
+})
