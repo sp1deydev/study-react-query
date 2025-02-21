@@ -9,6 +9,7 @@ import {
 } from "@tanstack/react-query";
 import { debounce } from "lodash";
 import { toast } from "react-toastify";
+import InfiniteQueries from "../InfiniteQueries/InfiniteQueries";
 
 const LIMIT = 5;
 function Home() {
@@ -271,6 +272,7 @@ function Home() {
             </Form.Item>
           </Form>
         </Modal>
+        <InfiniteQueries/>
       </div>
     </>
   );
